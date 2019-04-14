@@ -58,38 +58,39 @@ class RecipeReviewCard extends React.Component {
     this.setState({ isOpenAddToCartSnack: false });
   };
   render() {
-    const { classes,volumeInfo } = this.props;
-
-    let foldedDescription = volumeInfo.description ? volumeInfo.description.substring(0,100) :
+    const { classes,volumeInfo,dialog } = this.props;
+    let foldedDescription="";
+    if(dialog){
+      foldedDescription = volumeInfo.description ? volumeInfo.description :
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+    }else{
+      foldedDescription = volumeInfo.description ? volumeInfo.description.substring(0,100) :
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+    }
+   
     return (
-      <Card className={classes.card}>
-        <CardHeader avatar={<Avatar aria-label="Recipe" className={classes.avatar}>U</Avatar>
-          }
-          action={
-            <IconButton>
-              <MoreVertIcon />
-            </IconButton>
-          }
-          title={volumeInfo.title}
-          subheader={volumeInfo.authors.slice(0,2).join(",")}
-        />
-        <CardMedia
-          className={classes.media}
-          image={volumeInfo.imageLinks ? volumeInfo.imageLinks.thumbnail :"http://books.google.com/books/content?id=or6G-rTUs44C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"}
-          title="book Image"
-        />
-        <CardContent>
-          <Typography component="p">
-            {foldedDescription}
-          </Typography>
-        </CardContent>
+      <Card style={{maxWidth:this.props.width}} className={classes.card}>
+        <div onClick={() => this.props.openDialog(volumeInfo.title)}>
+          <CardHeader avatar={<Avatar aria-label="Recipe" className={classes.avatar}>U</Avatar>} action={<IconButton><MoreVertIcon /></IconButton> }
+            title={volumeInfo.title}
+            subheader={volumeInfo.authors.slice(0,2).join(",")}
+          />
+          <CardMedia
+            className={classes.media}
+            image={volumeInfo.imageLinks ? volumeInfo.imageLinks.thumbnail :"http://books.google.com/books/content?id=or6G-rTUs44C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"}
+            title="book Image"
+          />
+          <CardContent>
+            <Typography component="p">
+              {foldedDescription}
+            </Typography>
+          </CardContent>
+        </div>
         <CardActions className={classes.actions} disableActionSpacing>
           <IconButton aria-label="Add to favorites">
             <FavoriteIcon />
           </IconButton>
           <div onClick={()=>{
-            debugger
             this.addCartClick(volumeInfo.title)}}>
           <SnackbarComponent openClick={this.handleAddToCart} closeClick={this.handleAddToCartClose} open={this.state.isOpenAddToCartSnack}>
             <IconButton aria-label="Share">

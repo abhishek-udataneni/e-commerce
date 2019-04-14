@@ -4,14 +4,6 @@ import Snackbar from '@material-ui/core/Snackbar';
 import Fade from '@material-ui/core/Fade';
 
 class SnackbarComponent extends React.Component {
-  // handleClick = () => {
-  //   this.props.openClick()
-  // };
-
-  // handleClose = () => {
-  //   this.props.closeClick()
-  // };
-
   render() {
     let {open,openClick,closeClick} = this.props;
     return (

@@ -12,7 +12,6 @@ class App extends Component {
         <Navbar />
         <Route path="/" exact component={Home} />
         <Route path="/cart" exact component={Cart} /> 
-        Hello e-commerce
       </div>
     );
   }

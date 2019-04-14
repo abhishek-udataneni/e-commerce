@@ -20,25 +20,3 @@ export const getUsersSuccess = ({items}) => ({
         items
         }
 })
-
-export const createUserRequest = ({firstName,lastName}) => ({
-    type : Types.CREATE_USER_REQUEST,
-    payload : {
-        firstName,
-        lastName
-        }
-})
-
-export const deleteUserRequest = (userId) => ({
-    type : Types.DELETE_USER_REQUEST,
-    payload : {
-        userId
-        }
-})
-
-export const usersError = ({error}) => ({
-    type : Types.USERS_ERROR,
-    payload : {
-        error
-        }
-})

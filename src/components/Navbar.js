@@ -135,7 +135,6 @@ class PrimarySearchAppBar extends React.Component {
     const { classes } = this.props;
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-console.log(this.props.cart.items[2])
     const renderMenu = (
       <Menu
         anchorEl={anchorEl}
@@ -216,7 +215,7 @@ console.log(this.props.cart.items[2])
               </IconButton>
               <Link to="/cart">
                 <IconButton color="inherit">
-                    <Badge badgeContent={this.props.cart.items[2]} color="secondary">
+                    <Badge badgeContent={"1"} color="secondary">
                     <NotificationsIcon />
                     </Badge>
                 </IconButton>
