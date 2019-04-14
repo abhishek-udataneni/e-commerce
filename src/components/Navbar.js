@@ -17,7 +17,7 @@ import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import {connect} from "react-redux"; 
-import {getUsersRequest} from "../actions/users"; 
+import {getBooksRequest} from "../actions/books"; 
 import { Link } from "react-router-dom";
 
 const styles = theme => ({
@@ -106,7 +106,7 @@ class PrimarySearchAppBar extends React.Component {
   }
   handleSearch = (e) => {
     if (e.key === 'Enter') {
-        this.props.getUsersRequest(this.state.searchText);
+        this.props.getBooksRequest(this.state.searchText);
       }
   };
   handleSearchChange = event => {
@@ -249,4 +249,4 @@ const mapStatetoProps = state => {
         cart:state.cart,
     };
 };
-export default connect(mapStatetoProps,{getUsersRequest})(withStyles(styles)(PrimarySearchAppBar));
+export default connect(mapStatetoProps,{getBooksRequest})(withStyles(styles)(PrimarySearchAppBar));

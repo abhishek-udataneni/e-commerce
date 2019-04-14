@@ -1,4 +1,4 @@
-import {Types} from "../actions/users";
+import {Types} from "../actions/books";
 
 const INITIAL_STATE = {
     items : {},
@@ -6,16 +6,16 @@ const INITIAL_STATE = {
     isDataLoaded: false   
 }
 
-export default function users(state = INITIAL_STATE,action){
+export default function books(state = INITIAL_STATE,action){
     switch(action.type){
-        case Types.GET_USERS_SUCCESS: {
+        case Types.GET_BOOKS_SUCCESS: {
           return {  
               ...state,
               items : action.payload.items,
               isDataLoaded: true  
             }
         }
-        case Types.USERS_ERROR: {
+        case Types.BOOKS_ERROR: {
             console.log('====================================');
             console.log(action.payload.error);
             console.log('====================================');

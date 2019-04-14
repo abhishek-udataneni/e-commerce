@@ -110,7 +110,7 @@ closeDialog = ()=>{
 const mapStatetoProps = state => {
     return {
         cart:state.cart,
-        users:state.users
+        books:state.books
     };
 };
 export default connect(mapStatetoProps,{addItem,removeItem})(Cart);  
