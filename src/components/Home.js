@@ -40,7 +40,6 @@ class Home extends Component {
     }
     render() {
         let books = this.props.books.items;
-        // const { classes } = this.props;
         return (
                 <Grid style={{marginTop:"4rem",marginBottom:"1rem"}}container>
                  <ItemDescriptionDialog item={this.state.itemClicked} open={this.state.isOpenItemDescription} close={this.closeDialog}/>

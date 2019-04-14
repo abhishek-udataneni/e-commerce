@@ -7,7 +7,6 @@ import Card from "./Card";
 
 class confirmationDialog extends React.Component {
   render() {
-    let {open,openClick,closeClick} = this.props;
     return (
       <div>
         <Dialog open={this.props.open} onClose={this.props.close} aria-labelledby="responsive-dialog-title">
