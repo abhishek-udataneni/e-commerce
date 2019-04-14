@@ -98,6 +98,9 @@ class RecipeReviewCard extends React.Component {
             </IconButton>
           </SnackbarComponent> 
           </div>
+          <Typography >
+            $ {volumeInfo.title.length}
+          </Typography>
         </CardActions>
       </Card>
     );

@@ -42,7 +42,7 @@ class Home extends Component {
         let books = this.props.books.items;
         // const { classes } = this.props;
         return (
-                <Grid container>
+                <Grid style={{marginTop:"4rem",marginBottom:"1rem"}}container>
                  <ItemDescriptionDialog item={this.state.itemClicked} open={this.state.isOpenItemDescription} close={this.closeDialog}/>
                         {JSON.stringify(books) !== {} && this.props.books.isDataLoaded &&
                             books.items.map((item, i) => {

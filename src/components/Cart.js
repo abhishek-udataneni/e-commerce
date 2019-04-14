@@ -15,6 +15,9 @@ import AddCircleOutline from '@material-ui/icons/AddCircleOutline';
 import RemoveCircleOutline from '@material-ui/icons/RemoveCircleOutline';
 import {addItem,removeItem} from "../actions/cart";
 import ConfirmationDialog from './ConfirmationDialog';
+import { Link } from "react-router-dom";
+
+
 class Cart extends Component {
   constructor(props) {
     super(props);
@@ -37,7 +40,7 @@ closeDialog = ()=>{
         let tableData = Object.keys(this.props.cart.items).map((item) => ({name: item, quantity: this.props.cart.items[item], price: `$ ${item.length} `}));
         let total = sumData.reduce((a, item) => a + item.price*item.quantity, 0)
         return (
-          <Grid container justify="center" align="center">
+          <Grid style={{marginTop : "4rem"}} container justify="center" align="center">
           <ConfirmationDialog open={this.state.isOpenConfirmationDialog} close={this.closeDialog}/>
             <Card style={{marginTop: "2rem"}}elevation={0}>
               <CardContent style={{ padding: 0 }}>
@@ -98,10 +101,14 @@ closeDialog = ()=>{
                
              
               </CardActions>
-              <Button  onClick={this.openDialog} variant="contained" color="primary" fullWidth>
+              <Button style={{marginBottom:"1rem",textDecoration: 'none'}} onClick={this.openDialog} variant="contained" color="primary" fullWidth>
                   Pay
               </Button>
-               
+              <Link to="/">
+                <Button variant="contained" color="primary" fullWidth>
+                    Back to search results
+                </Button>
+              </Link>  
             </Card>
           </Grid>
         );
