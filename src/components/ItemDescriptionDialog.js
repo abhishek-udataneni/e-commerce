@@ -11,7 +11,7 @@ class ItemDescriptionDialog extends React.Component {
       <div>
         <Dialog open={this.props.open} onClose={this.props.close} aria-labelledby="responsive-dialog-title">
           <DialogContent>
-            <Card width={1000} dialog openDialog={()=>{alert("clicked")}} {...this.props.item}/>
+            <Card width={1000} dialog openDialog={()=>{return;}} {...this.props.item}/>
           </DialogContent>
           
           <DialogActions>

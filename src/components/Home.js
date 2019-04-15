@@ -2,17 +2,9 @@ import React, { Component } from 'react';
 import Card from "./Card";
 import {connect} from "react-redux";
 import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
-// import { withStyles } from '@material-ui/core/styles';
 import {getBooksRequest} from "../actions/books";
 import ItemDescriptionDialog from "./ItemDescriptionDialog";
-import { Divider } from '@material-ui/core';
 import CircularProgress from '@material-ui/core/CircularProgress';
-// style = {{
-//     display: "flex",
-//         flexDirection: "row",
-//             justifyContent: "center"
-// }}
 
 class Home extends Component {
     constructor(props) {
@@ -21,9 +13,6 @@ class Home extends Component {
             isOpenItemDescription:false
           };
         
-    }
-    componentDidMount(){
-        // this.props.getBooksRequest();
     }
     openDialog = (id)=>{
         let itemClicked = this.props.books.items.items.find((item) => {
@@ -54,8 +43,6 @@ class Home extends Component {
                             top: "50%",
                             left: "50%",
                             marginRight:" -50%",
-                            // transform: "translate(-50%, -50%) "
-                            // marginTop:"5rem",marginBottom:"1rem"
                     
                     }} color="secondary" />
                     </Grid>  
