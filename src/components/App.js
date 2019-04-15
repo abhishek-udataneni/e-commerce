@@ -3,8 +3,12 @@ import Navbar from "./Navbar";
 import Home from "./Home";
 import Cart from "./Cart";
 import {Route} from "react-router-dom";
-
+import {getBooksRequest} from "../actions/books";
+import {connect} from "react-redux";
 class App extends Component {
+  componentDidMount() {
+    this.props.getBooksRequest();
+  }
   render() {
     return (
       <div  className="App">
@@ -15,4 +19,5 @@ class App extends Component {
     );
   }
 }
-export default App
+
+export default connect(null,{getBooksRequest})(App)

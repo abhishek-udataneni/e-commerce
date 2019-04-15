@@ -6,6 +6,8 @@ import Button from '@material-ui/core/Button';
 // import { withStyles } from '@material-ui/core/styles';
 import {getBooksRequest} from "../actions/books";
 import ItemDescriptionDialog from "./ItemDescriptionDialog";
+import { Divider } from '@material-ui/core';
+import CircularProgress from '@material-ui/core/CircularProgress';
 // style = {{
 //     display: "flex",
 //         flexDirection: "row",
@@ -18,19 +20,18 @@ class Home extends Component {
         this.state = {
             isOpenItemDescription:false
           };
-        this.props.getBooksRequest();
-        this.openDialog =  this.openDialog.bind(this)
+        
+    }
+    componentDidMount(){
+        // this.props.getBooksRequest();
     }
     openDialog = (id)=>{
-        debugger
         let itemClicked = this.props.books.items.items.find((item) => {
                 return item.volumeInfo.title === id;
               });
-        
-        console.log(itemClicked)
         this.setState({
             isOpenItemDescription:true,
-            itemClicked:itemClicked
+            itemClicked
         })
     }
     closeDialog = ()=>{
@@ -38,8 +39,32 @@ class Home extends Component {
             isOpenItemDescription:false
         })
     }
+    
     render() {
         let books = this.props.books.items;
+        if(this.props.books.loading){
+            return (
+               
+                    <Grid conatainer direction= 'column'
+                        justify= 'center'
+                        alignItems='center'>
+                        <CircularProgress item style={{
+                            margin: 0,
+                            position: "absolute",
+                            top: "50%",
+                            left: "50%",
+                            marginRight:" -50%",
+                            // transform: "translate(-50%, -50%) "
+                            // marginTop:"5rem",marginBottom:"1rem"
+                    
+                    }} color="secondary" />
+                    </Grid>  
+                 
+            )
+        }
+        if(!this.props.books.items.items){
+            return <div style={{marginTop:"4rem",marginBottom:"1rem"}}> No books found.</div>
+        }
         return (
                 <Grid style={{marginTop:"4rem",marginBottom:"1rem"}}container>
                  <ItemDescriptionDialog item={this.state.itemClicked} open={this.state.isOpenItemDescription} close={this.closeDialog}/>

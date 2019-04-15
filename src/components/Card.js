@@ -67,7 +67,7 @@ class RecipeReviewCard extends React.Component {
         <div onClick={() => this.props.openDialog(volumeInfo.title)}>
           <CardHeader avatar={<Avatar aria-label="Recipe" className={classes.avatar}>U</Avatar>} action={<IconButton><MoreVertIcon /></IconButton> }
             title={volumeInfo.title}
-            subheader={volumeInfo.authors.slice(0,2).join(",")}
+            subheader={volumeInfo.authors && volumeInfo.authors.slice(0,2).join(",")}
           />
           <CardMedia
             className={classes.media}

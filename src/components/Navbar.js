@@ -158,7 +158,7 @@ class PrimarySearchAppBar extends React.Component {
         <MenuItem onClick={this.handleMobileMenuClose}>
           <IconButton color="inherit">
             <Badge badgeContent={11} color="secondary">
-              <ShoppingCart/>
+              <ShoppingCart color="secondary"/>
             </Badge>
           </IconButton>
           <p>cart</p>
